@@ -4,7 +4,7 @@ inFile = sys.argv[1]
 preferences, people = utils.manipulate(inFile)
 N = int(len(preferences) / 2)
 def wPrefersM1OverM(prefer, w, m, m1): 
-    for i in range(N): 
+    for i in range(len(prefer[w])): 
         if (prefer[w][i] == m1): 
             return True
         if (prefer[w][i] == m): 
@@ -21,7 +21,7 @@ def stableMarriage(prefer):
                 break
             m += 1
         i = 0
-        while i < N and mFree[m] == False: 
+        while i < len(prefer[m]) and mFree[m] == False: 
             w = prefer[m][i] 
             if (wPartner[w - N] == -1): 
                 wPartner[w - N] = m 
